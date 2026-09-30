@@ -1,0 +1,110 @@
+/* ============================================================
+   [جديد] إضافات تصميم: شريط إحصائيات التجار المتحرك (Ticker)
+   + عناصر طلب/فاتورة الهدية المجانية بالمتجر
+   تعتمد على متغيرات التصميم الموجودة بالفعل في store.css
+   ============================================================ */
+
+/* ---------- شريط إحصائيات التجار (Ticker) ---------- */
+.merchant-ticker {
+    background: linear-gradient(90deg, var(--n-900), var(--n-800));
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    margin: var(--sp-lg) 0;
+    box-shadow: var(--sh-sm);
+    position: relative;
+}
+.merchant-ticker-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-lg);
+    align-items: center;
+    padding: 10px var(--sp-lg);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+}
+.merchant-ticker-summary .item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.merchant-ticker-summary .item i { color: var(--p-500); }
+.merchant-ticker-summary .item b {
+    font-family: var(--font-num);
+    color: var(--p-500);
+    font-size: 14px;
+}
+.merchant-ticker-track-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+}
+.merchant-ticker-track {
+    display: inline-flex;
+    gap: 28px;
+    padding-inline-start: 100%;
+    animation: merchantTickerScroll 32s linear infinite;
+}
+.merchant-ticker-track:hover { animation-play-state: paused; }
+@keyframes merchantTickerScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+}
+.merchant-ticker-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: var(--r-full);
+    font-size: 12.5px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.merchant-ticker-chip i { color: var(--p-500); font-size: 11px; }
+.merchant-ticker-chip b { font-family: var(--font-num); color: var(--p-500); }
+
+@media (max-width: 639px) {
+    .merchant-ticker-summary { gap: var(--sp-md); }
+    .merchant-ticker-summary .item { font-size: 11.5px; }
+}
+
+/* ---------- عناصر طلب/فاتورة الهدية المجانية (واجهة المتجر) ---------- */
+.gift-order-header {
+    text-align: center;
+    background: linear-gradient(135deg, var(--p-50), #fff3cd);
+    border: 2px dashed var(--p-500);
+    border-radius: var(--r-lg);
+    padding: 22px 16px;
+    margin-bottom: var(--sp-lg);
+    position: relative;
+    overflow: hidden;
+}
+.gift-order-header i.fa-gift {
+    font-size: 30px;
+    color: var(--p-600);
+    margin-bottom: 6px;
+    display: block;
+}
+.gift-order-header .to-from {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--p-700);
+}
+.gift-order-stamp {
+    display: inline-block;
+    margin-top: 12px;
+    border: 3px solid var(--c-danger);
+    color: var(--c-danger);
+    border-radius: var(--r-full);
+    padding: 6px 22px;
+    font-weight: 900;
+    font-size: 13px;
+    transform: rotate(-6deg);
+    opacity: .9;
+}
